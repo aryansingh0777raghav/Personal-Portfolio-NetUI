@@ -169,20 +169,38 @@ body {
 }
 
 /* Categories */
+
 .categories {
   background: #141414;
   padding: 10px 40px;
   border-bottom: 2px solid #222;
+  overflow-x: auto;
 }
 .categories ul {
   display: flex;
   gap: 20px;
   list-style: none;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #e50914 #222;
+}
+.categories ul::-webkit-scrollbar {
+  height: 6px;
+}
+.categories ul::-webkit-scrollbar-thumb {
+  background: #e50914;
+  border-radius: 4px;
+}
+.categories ul::-webkit-scrollbar-track {
+  background: #222;
 }
 .categories li {
   cursor: pointer;
   color: #fff;
   padding-bottom: 5px;
+  white-space: nowrap;
+  font-size: 1rem;
 }
 .categories li.active {
   border-bottom: 3px solid #e50914;
@@ -190,6 +208,34 @@ body {
 .categories li a {
   color: inherit;
   text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .categories {
+    padding: 8px 4px 8px 8px;
+    border-bottom: 2px solid #222;
+    overflow-x: auto;
+  }
+  .categories ul {
+    gap: 12px;
+    padding: 0 0 4px 0;
+    font-size: 0.98rem;
+  }
+  .categories li {
+    font-size: 0.98rem;
+    padding: 10px 0 6px 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .categories ul {
+    gap: 8px;
+    font-size: 0.93rem;
+  }
+  .categories li {
+    font-size: 0.93rem;
+    padding: 8px 0 4px 0;
+  }
 }
 
 /* Top Picks */
@@ -288,6 +334,7 @@ footer {
 }
 
 /* Responsive */
+
 @media (max-width: 900px) {
   .hero {
     padding-left: 20px;
@@ -303,16 +350,37 @@ footer {
   .carousel {
     gap: 16px;
     padding-bottom: 16px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .section {
+    padding: 24px 8px;
+  }
+  .top-picks {
+    padding: 24px 8px;
   }
 }
+
 @media (max-width: 600px) {
   .netflix-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
   }
+  .hero {
+    height: auto;
+    min-height: 320px;
+    padding: 16px 4px 8px 4px;
+    text-align: center;
+    justify-content: center;
+    background-position: center top;
+  }
+  .hero-content {
+    max-width: 100%;
+    margin: 0 auto;
+  }
   .hero h1 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
   .hero p {
     font-size: 0.9rem;
@@ -320,5 +388,22 @@ footer {
   .btn {
     font-size: 0.9rem;
     padding: 8px 16px;
+  }
+  .carousel {
+    gap: 10px;
+    padding-bottom: 10px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .card {
+    min-width: 160px;
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+  .big-card img {
+    width: 160px;
+  }
+  .section, .top-picks {
+    padding: 12px 2px;
   }
 }
