@@ -200,6 +200,16 @@
       <textarea id="visitor-message" name="Message" rows="4" required placeholder="Type your message..."></textarea>
       <button type="submit" class="btn btn-primary" style="margin-top: 12px;">Send Mail</button>
     </form>
+    <script>
+      document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('visitor-name').value.trim();
+        const email = document.getElementById('visitor-email').value.trim();
+        const message = document.getElementById('visitor-message').value.trim();
+        const mailto = `mailto:aryan...@gmail.com?subject=Message from ${encodeURIComponent(name)} (${encodeURIComponent(email)})&body=${encodeURIComponent(message + '\n\nSender Email: ' + email)}`;
+        window.location.href = mailto;
+      });
+    </script>
   </section>
 
   <footer>
