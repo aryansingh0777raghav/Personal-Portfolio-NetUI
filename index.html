@@ -197,7 +197,6 @@
     </div>
   </section>
 
-  <!-- Contact -->
   <section id="contact" class="section">
     <h2>Contact</h2>
     <div class="carousel">
@@ -208,25 +207,33 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <!-- Contact Form -->
-  <section class="section" id="email-contact" style="padding-bottom: 0;">
-    <h2>Send Me a Message</h2>
-    <form class="contact-form" action="mailto:aryan...@gmail.com" method="POST" enctype="text/plain" style="max-width: 400px; margin: 0 auto;">
-      <label for="visitor-name">Your Name</label>
-      <input type="text" id="visitor-name" name="Name" required placeholder="Enter your name">
-      <label for="visitor-email">Your Email</label>
-      <input type="email" id="visitor-email" name="Email" required placeholder="Enter your email">
-      <label for="visitor-message">Message</label>
-      <textarea id="visitor-message" name="Message" rows="4" required placeholder="Type your message..."></textarea>
-      <button type="submit" class="btn btn-primary" style="margin-top: 12px;">Send Mail</button>
-    </form>
+<section id="contact" class="section">
+  <!-- Contact (Netflix Style, Single Section) -->
+  <section id="contact" class="section fade-in" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:420px;">
+    <h2 class="section-title" style="text-align:center;width:100%;">Contact Me</h2>
+    <div class="contact-grid" style="display:flex;justify-content:center;align-items:center;width:100%;">
+      <form id="contactForm" class="contact-form" style="width:100%;max-width:400px;box-shadow:0 2px 16px rgba(229,9,20,0.18);background:#181818;display:flex;flex-direction:column;align-items:center;">
+        <div class="form-group" style="margin-bottom:18px;width:100%;text-align:center;">
+          <label for="name" style="display:block;text-align:center;width:100%;">Name</label>
+          <input type="text" id="name" placeholder="Your Name" required style="width:100%;text-align:center;">
+        </div>
+        <div class="form-group" style="margin-bottom:18px;width:100%;text-align:center;">
+          <label for="email" style="display:block;text-align:center;width:100%;">Email</label>
+          <input type="email" id="email" placeholder="you@example.com" required style="width:100%;text-align:center;">
+        </div>
+        <div class="form-group" style="margin-bottom:22px;width:100%;text-align:center;">
+          <label for="message" style="display:block;text-align:center;width:100%;">Message</label>
+          <textarea id="message" rows="5" placeholder="Write your message here" required style="width:100%;text-align:center;"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top:8px;width:100%;font-size:1.1rem;font-weight:700;">Send Message</button>
+      </form>
+    </div>
     <script>
-      document.querySelector('.contact-form').addEventListener('submit', function(e) {
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        const name = document.getElementById('visitor-name').value.trim();
-        const email = document.getElementById('visitor-email').value.trim();
-        const message = document.getElementById('visitor-message').value.trim();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
         const mailto = `mailto:aryan...@gmail.com?subject=Message from ${encodeURIComponent(name)} (${encodeURIComponent(email)})&body=${encodeURIComponent(message + '\n\nSender Email: ' + email)}`;
         window.location.href = mailto;
       });
