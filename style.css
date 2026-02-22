@@ -220,7 +220,7 @@ body {
 
 /* Hero Banner */
 .hero {
-  height: 75vh;
+  height: 87vh;
   background: linear-gradient(to right, rgba(20,20,20,0.8), transparent),
               url('hero-bg.png') center/cover no-repeat;
   display: flex;
@@ -303,6 +303,10 @@ body {
 }
 
 @media (max-width: 768px) {
+  .hero {
+    height: 60vh;
+    background-position: center top;
+  }
   .categories {
     padding: 8px 4px 8px 8px;
     border-bottom: 2px solid #222;
@@ -510,6 +514,40 @@ body {
   /* aspect-ratio:16/9 on .featured-youtube keeps correct height; no fixed height needed */
 }
 @media (max-width:600px) {
+  .featured-youtube {
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .featured-youtube img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  .youtube-badge { 
+    position: static;
+    width: fit-content;
+    top: auto;
+    left: auto;
+    margin: 12px;
+  }
+  .youtube-caption { 
+    position: static;
+    background: #222;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    margin: 0 12px 12px 12px;
+    padding: 16px;
+  }
+  .youtube-caption h3 { 
+    font-size: 1.1rem; 
+    margin-bottom: 6px; 
+  }
+  .youtube-caption p {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+  }
   .featured-badge { top: 12px; left: 12px; padding: 6px 10px; font-size: 0.9rem; }
   .featured-caption { bottom: 12px; left: 12px; right: 12px; padding: 10px; }
 }
@@ -566,14 +604,13 @@ footer {
   .hero {
     height: auto;
     min-height: 320px;
-    padding: 16px 4px 8px 4px;
-    text-align: center;
-    justify-content: center;
-    background-position: center top;
+    padding-left: 16px;
+    text-align: left;
+    justify-content: flex-start;
+    background-position: left center;
   }
   .hero-content {
     max-width: 100%;
-    margin: 0 auto;
   }
   .hero h1 {
     font-size: 1.5rem;
