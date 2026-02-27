@@ -222,10 +222,11 @@ body {
 .hero {
   height: 87vh;
   background: linear-gradient(to right, rgba(20,20,20,0.8), transparent),
-              url('hero-bg.png') center/cover no-repeat;
+              url('hero-bg.png') center right/cover no-repeat;
   display: flex;
   align-items: center;
   padding-left: 60px;
+  background-attachment: fixed;
 }
 .hero-content {
   max-width: 500px;
@@ -380,7 +381,8 @@ body {
 @media (max-width: 768px) {
   .hero {
     height: 60vh;
-    background-position: center top;
+    background-position: center right;
+    background-attachment: scroll;
   }
   .categories {
     padding: 8px 4px 8px 8px;
