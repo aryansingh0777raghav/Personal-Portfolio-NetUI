@@ -103,3 +103,24 @@ document.querySelectorAll('.carousel').forEach(carousel => {
         carousel.scrollBy({ left: 300, behavior: "smooth" });
     });
 });
+
+// Intro Video - Autoplay on Scroll (GitHub Pages Optimized)
+const introVideo = document.getElementById('introVideo');
+if (introVideo && 'IntersectionObserver' in window) {
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Start autoplay when video enters viewport
+                introVideo.play().catch(() => {
+                    // Autoplay may fail due to browser policies
+                    // Video will still show poster image as fallback
+                });
+            } else {
+                // Pause video when scrolled out of view
+                introVideo.pause();
+            }
+        });
+    }, { threshold: 0.1 });
+
+    videoObserver.observe(introVideo);
+}
